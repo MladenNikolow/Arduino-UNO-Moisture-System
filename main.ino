@@ -59,9 +59,8 @@ ISR(INT0_vect)
 //button debouncing
 void initTimer1() 
 {
-  TCCR1A = 0; //I don't use this register
-  //TCCR1B |=  2; //TCCR1B |=  1<<1| 1<<0 (3); //TCCR1B |= 1 << 2 - местим го с 2, защото са CS10 (0-ев), CS11 (1-ви) и CS12 (2-ри)(4) //Setting timer clock to F/256
-  TCCR1B &= ~7; // disable timer 1 //xxxx x111 to xxxx x000
+  TCCR1A = 0; //don't use this register
+  TCCR1B &= ~7; // disable timer 1 
   TIMSK1 |=  1<<0; //Enabling Overflow Interrupt
   TIFR1 = 0; //Setting interrupt flags to 0
 }
